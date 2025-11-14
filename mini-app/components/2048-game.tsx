@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 import Share from '@/components/share';
 import { title, description, url } from '@/lib/metadata';
 
@@ -122,7 +121,7 @@ export default function Game() {
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [board, gameOver]);
+  }, [board, gameOver, handleMove]);
 
   return (
     <div className="flex flex-col items-center gap-4">
@@ -137,11 +136,7 @@ export default function Game() {
       {gameOver && (
         <div className="flex flex-col items-center gap-2">
           <div>{won ? 'You win!' : 'Game over'}</div>
-          <Share
-            title={title}
-            description={`${description} Score: ${score}`}
-            url={url}
-          />
+          <Share text={`${title} ${description} Score: ${score}`} />
         </div>
       )}
     </div>

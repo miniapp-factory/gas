@@ -1,7 +1,6 @@
 import { description, title } from "@/lib/metadata";
 import { generateMetadata } from "@/lib/farcaster-embed";
 import Game from "@/components/2048-game";
-import Share from "@/components/share";
 
 export { generateMetadata };
 
